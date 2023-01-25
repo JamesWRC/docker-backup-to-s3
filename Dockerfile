@@ -2,7 +2,7 @@ FROM debian:stable
 MAINTAINER Ilya Stepanov <dev@ilyastepanov.com>
 
 RUN apt-get update && \
-    apt-get install -y python python3-pip cron && \
+    apt-get install -y python python3-pip cron zip && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install s3cmd

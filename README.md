@@ -10,8 +10,9 @@ Docker container that periodically backups files to Amazon S3 using [s3cmd sync]
 
 ### Usage
 
-    docker run -d [OPTIONS] istepanov/backup-to-s3
+    docker run -d [OPTIONS] jameswrc/docker-backup-to-s3
 
+    Used for ARM64.
 ### Parameters:
 
 * `-e ACCESS_KEY=<AWS_KEY>`: Your AWS key.
@@ -20,7 +21,7 @@ Docker container that periodically backups files to Amazon S3 using [s3cmd sync]
 * `-v /path/to/backup:/data:ro`: mount target local folder to container's data folder. Content of this folder will be synced with S3 bucket.
 
 ### Optional parameters:
-
+* `-e ZIP_NAME='db_backup.zip'`: Specify zip file name to zip path and upload single zip files. If not specified, will upload raw directory path.
 * `-e PARAMS="--dry-run"`: parameters to pass to the sync command ([full list here](http://s3tools.org/usage)).
 * `-e DATA_PATH=/data/`: container's data folder. Default is `/data/`. Should end with trailing slash.
 * `-e 'CRON_SCHEDULE=0 1 * * *'`: specifies when cron job starts ([details](http://en.wikipedia.org/wiki/Cron)). Default is `0 1 * * *` (runs every day at 1:00 am).
