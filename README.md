@@ -1,4 +1,4 @@
-istepanov/backup-to-s3
+originally from istepanov/backup-to-s3
 ======================
 
 [![Docker Stars](https://img.shields.io/docker/stars/istepanov/backup-to-s3.svg)](https://hub.docker.com/r/istepanov/backup-to-s3/)
