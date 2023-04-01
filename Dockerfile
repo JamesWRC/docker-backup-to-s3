@@ -2,7 +2,7 @@ FROM debian:stable
 MAINTAINER Ilya Stepanov <dev@ilyastepanov.com>
 
 RUN apt-get update && \
-    apt-get install -y python python3-pip cron zip && \
+    apt-get install -y python python3-pip cron zip nano && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install s3cmd
@@ -17,6 +17,7 @@ RUN chmod +x /sync.sh
 
 ADD get.sh /get.sh
 RUN chmod +x /get.sh
+
 
 ENTRYPOINT ["/start.sh"]
 CMD [""]

@@ -26,6 +26,7 @@ else
     fi
     CRON_ENV="PARAMS='$PARAMS'"
     CRON_ENV="$CRON_ENV\nDATA_PATH='$DATA_PATH'"
+    CRON_ENV="$CRON_ENV\nZIP_NAME='$ZIP_NAME'"
     CRON_ENV="$CRON_ENV\nS3_PATH='$S3_PATH'"
     echo -e "$CRON_ENV\n$CRON_SCHEDULE /sync.sh > $LOGFIFO 2>&1" | crontab -
     crontab -l

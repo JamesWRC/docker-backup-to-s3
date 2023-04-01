@@ -1,9 +1,10 @@
 #!/bin/bash
 
 set -e
+export DATA_PATH=${DATA_PATH:-/data/}
 
 echo "Job started: $(date)"
-if [ -n "${ZIP_NAME+1}" ]; then
+if [ -n "$ZIP_NAME" ]; then
     echo "Zipping contents of $DATA_PATH to $ZIP_NAME"
     zip -r "$ZIP_NAME" "$DATA_PATH" 
     /usr/local/bin/s3cmd sync $PARAMS "$ZIP_NAME" "$S3_PATH"
